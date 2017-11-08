@@ -31,8 +31,4 @@ Star Formation - Conference at Exeter University, September 2016
 Modern Observations, Theory and Techniques for Solar and Stellar Physics - Meeting at Warwick University, July 2016
 
 Previous Education:
-MPhys Physics with Astrophysics and Space Science (2012-2016)[jekyllrb.com](https://jekyllrb.com/)
-
-
-
-[jekyll-organization]: https://github.com/jekyll
+MPhys Physics with Astrophysics and Space Science (2012-2016)
