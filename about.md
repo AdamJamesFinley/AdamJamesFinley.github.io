@@ -12,9 +12,7 @@ The Effects of Real Magnetic Field Structures on the Winds from Sun-Like Stars
 
 <table class="image" align="right">
 <tr><td><img src="/images/SolarMin.png" height="300px"></td></tr>
-<!---
 <tr><td class="caption">Simulation of the Solar wind at the minimum of the magnetic activity cycle.</td></tr>
--->
 </table>
 
 I wish to understand the complex interaction of stellar magnetic fields and plasma in stellar winds and other astrophysical fluids. The Sun is seen to undergo a 22 year cycle of magnetic activity, over which time the overall dipolar field structure is seen to reverse and then be restored. Through the use of Zeeman Doppler Imaging (ZDI) observations, other sun-like stars have been seen to have cyclic variability in their magnetic activity. This modified field topology is believed to impact the spin-down forces on the star, and thus effect predictions for the age of the star (Gyrochronology).
@@ -23,9 +21,7 @@ I wish to understand the complex interaction of stellar magnetic fields and plas
 
 <table class="image" align="right">
 <tr><td><img src="/images/paper1_f2.png" height="300px"></td></tr>
-<!---
 <tr><td class="caption">Figure 1 from Finley & Matt (2017), showing a few stellar wind simulations with differing magnetic geometries.</td></tr>
--->
 </table>
 
 Working in the AWESoMeStars research group, supervised by Sean Matt, I create magnetohydrodynamics (MHD) simulations of stellar winds from sun-like stars, where I explore the impact of imposed magnetic field structures on the morphology and structure within the wind. My research is mainly focused on the creation of torque scaling laws for evolutionary models of stellar spin down, which take into account the changing magnetic field structure seen in many active stars. I am attempting to create a systematic study of the simplest field combinations, dipole, quadrupole and octupole in order to produce torque scaling relations capable of including activity cycles and changing magnetic field topologies. 
