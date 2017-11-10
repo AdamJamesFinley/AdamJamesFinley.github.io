@@ -9,7 +9,9 @@ Assets used for this project:
 * Python
 * pySHTOOLS, for the spherical harmonic tools: [link](https://shtools.oca.eu/shtools/index.html)
 	* the subsequent python dependencies
+* VisIt, for visualisations: [link](https://wci.llnl.gov/simulation/computer-codes/visit/downloads)
 * Matplotlib, for visualisations: [link](https://matplotlib.org/index.html)
+
 
 NOTE: I use the spherical harmonic convention of storing the negative m solutions in the imaginary part of the positive solution. Therfore my index runs from 0 &lt; m &lt; l.
 
