@@ -82,7 +82,7 @@ for TH_prime in np.arange(0,np.pi,angle_stepsize): #the angle change in the thet
 
 ### Results
 
-The code rotates the coordinate system of the grid, shown in the right-most panel of each figure below. The effect this has on the spherical harmonic decomposition is examined in the middle panel, where the power in each harmonic is measured. During the whole run, the code revolves the geometry by 180 degrees, the values of the coefficients required to construct the tilted geometry are plotted in the left panel i.e. Tilted(m=0)_l = coeff*(m=0)+coeff*Re(m=1)+coeff*Im(m=1)....etc.
+The code rotates the coordinate system of the grid, shown in the right-most panel of each figure below. The effect this has on the spherical harmonic decomposition is examined in the middle panel, where the power in each harmonic is measured. During the whole run, the code revolves the geometry by 180 degrees, the values of the coefficients required to construct the tilted geometry are plotted in the left panel i.e. Tilted(m=0)_l = coeffx(m=0)+coeffxRe(m=1)+coeffxIm(m=1)....etc.
 
 # Dipole
 <video height="240" autoplay='' loop='' align='center'>
