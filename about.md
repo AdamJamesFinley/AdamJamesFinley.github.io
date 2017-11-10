@@ -11,7 +11,7 @@ The Effects of Real Magnetic Field Structures on the Winds from Sun-Like Stars
 # Research Interests:
 
 <table class="image" align="right">
-<tr><td><img src="/images/SolarMin.png" height="300px"></td></tr>
+<tr><td><img src="/images/about/SolarMin.png" height="300px"></td></tr>
 <tr><td class="caption">Simulation of the Solar wind at the minimum of the magnetic activity cycle.</td></tr>
 </table>
 
@@ -20,7 +20,7 @@ I wish to understand the complex interaction of stellar magnetic fields and plas
 # Current Work:
 
 <table class="image" align="right">
-<tr><td><img src="/images/paper1_f2.png" height="300px"></td></tr>
+<tr><td><img src="/images/about/paper1_f2.png" height="300px"></td></tr>
 <tr><td class="caption">Figure 1 from Finley & Matt (2017), showing a few stellar wind simulations with differing magnetic geometries.</td></tr>
 </table>
 
@@ -29,7 +29,7 @@ Working in the AWESoMeStars research group, supervised by Sean Matt, I create ma
 To better visualise the magnetic fields of solar-like stars (and potentially other magnetised astrophysical phenomena), I have been working with the physics department's 3D printing capability to render handheld models which can be used for research or outreach purposes. 
 
 <table class="image" align="center">
-<tr><td><img src="/images/3d_prints.jpg" height="150px"></td></tr>
+<tr><td><img src="/images/about/3d_prints.jpg" height="150px"></td></tr>
 <tr><td class="caption">3D printed models, dipolar to quadrupole mixed geometries.</td></tr>
 </table>
 
