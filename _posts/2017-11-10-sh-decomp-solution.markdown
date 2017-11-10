@@ -30,7 +30,7 @@ It is not as obvious how tilted geometries can be constructed for the higher ord
 
 ### Method
 
-To find the combinations that comprise tilted higher order geometries, we artificially tilt the axisymmetric (m=0) geometry. Then we recover the spherical harmonic components using pySHTOOLS. e.g.
+To find the combinations of harmonics that comprise the tilted higher order geometries, we artificially tilt a given axisymmetric (m=0) geometry. Then recover the spherical harmonic components using pySHTOOLS. e.g.
 
 {% highlight ruby %}
 #INPUTS#
@@ -82,7 +82,7 @@ for TH_prime in np.arange(0,np.pi,angle_stepsize): #the angle change in the thet
 
 ### Results
 
-The code rotates the coordinate system of the grid, shown in the right-most panel of each figure below. The effect this has on the spherical harmonic decomposition is examined in the middle panel, where the power in each harmonic is measured. During the whole run, the code revolves the geometry by 180 degrees, the values of the coefficients required to construct the tilted geometry are plotted in the left panel. 
+The code rotates the coordinate system of the grid, shown in the right-most panel of each figure below. The effect this has on the spherical harmonic decomposition is examined in the middle panel, where the power in each harmonic is measured. During the whole run, the code revolves the geometry by 180 degrees, the values of the coefficients required to construct the tilted geometry are plotted in the left panel i.e. Tilted(m=0)_l = coeff*(m=0)+coeff*Re(m=1)+coeff*Im(m=1)....etc.
 
 # Dipole
 <video height="240" autoplay='' loop='' align='center'>
@@ -103,7 +103,7 @@ The axisymmetric mode (m=0) and the m=2 mode rise and fall together, with the m=
   <source src="/images/sph_harm/Octupole.mp4" type="video/mp4">
 </video>
 
-A much more complicated behaviour is seen here. The m=1 and m=3 modes have symmetric functions whereas the m=0 and m=2 have antisymmetric functions about the equator.
+A much more complicated behaviour is shown here. The m=1 and m=3 modes have symmetric functions whereas the m=0 and m=2 have antisymmetric functions about the equator.
 
 
 
@@ -113,7 +113,7 @@ The code correctly maintains all the power in the given spherical harmonic order
 
 # Review
 
-This took a good day to figure out, and I think there's some redundant code in there (there isn't a reason to do the interpolation section as the TH,PHI grid is already equally sampled.) However, this project taught me a lot about the spherical harmonics and coordnate geometry (I hope I don't have to do it again for some time). The results show exavtly what we believed, the power ofcourse remains within the original mode, and the higher order geometries have a much more complex behaviour that the dipole's. 
+This took a good day to figure out, and I think there's some redundant code in there (e.g. there isn't a reason to do the interpolation section as the TH,PHI grid is already equally sampled.) However, this project taught me a lot about the spherical harmonics and coordnate geometry (I hope I don't have to do it the later again for some time). The results show, the power to ofcourse remain within the original mode, and the higher order geometries have a much more complex behaviour that the dipole's. 
 
 The tilting is done in the z-direction, hence why only the real or imaginary part of each m comes into play. I'de expect to see the opposite result when tilting in the y-direction, maybe with a sign change or two..
 
