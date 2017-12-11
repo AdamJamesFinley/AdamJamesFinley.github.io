@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-10T15:14:46+00:00</updated><id>http://localhost:4000/</id><title type="html">Adam Finley - Astrophysics</title><subtitle>This site contains information and materials related to the PhD project  of Adam Finley at the University of Exeter (2016-2020).</subtitle><entry><title type="html">Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components</title><link href="http://localhost:4000/jekyll/update/2017/11/10/sh-decomp-solution.html" rel="alternate" type="text/html" title="Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components" /><published>2017-11-10T11:00:00+00:00</published><updated>2017-11-10T11:00:00+00:00</updated><id>http://localhost:4000/jekyll/update/2017/11/10/sh-decomp-solution</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/11/10/sh-decomp-solution.html">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-12-11T16:18:07+00:00</updated><id>/</id><title type="html">Adam Finley - Astrophysics</title><subtitle>This site contains information and materials related to the PhD project  of Adam Finley at the University of Exeter (2016-2020).</subtitle><entry><title type="html">The Dipole, Quadrupole and Octupole Components of the Solar Magnetic Field Over 22 Years</title><link href="/phd/2017/12/11/DipQuadOct_SolarCycle.html" rel="alternate" type="text/html" title="The Dipole, Quadrupole and Octupole Components of the Solar Magnetic Field Over 22 Years" /><published>2017-12-11T11:00:00+00:00</published><updated>2017-12-11T11:00:00+00:00</updated><id>/phd/2017/12/11/DipQuadOct_SolarCycle</id><content type="html" xml:base="/phd/2017/12/11/DipQuadOct_SolarCycle.html">&lt;hr /&gt;
 &lt;p&gt;Assets used for this project:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Python&lt;/li&gt;
@@ -7,6 +7,59 @@
       &lt;li&gt;the subsequent python dependencies&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;PLUTO MHD code, for the PFSS models &lt;a href=&quot;http://plutocode.ph.unito.it/&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;VisIt, for visualisations: &lt;a href=&quot;https://wci.llnl.gov/simulation/computer-codes/visit/downloads&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Matplotlib, for visualisations: &lt;a href=&quot;https://matplotlib.org/index.html&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Data from both the Michelson Doppler Imager and Helioseismic and Magnetic Imager, onboard the SOlar and Heliospheric Observatory and the Solar Dynamics Observatory, respectively.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;the-question&quot;&gt;The Question:&lt;/h3&gt;
+&lt;p&gt;As shown previously, the Solar magnetic field can be decomposed into its spherical harmonic components (see work by DeRosa et al. 2012). The magnetic lowest order components (l=1,2,3) represent the large scale magnetic field, which has been shown to be the most significant in producing an efficient braking torque from a given mass loss in a stellar wind (Finley &amp;amp; Matt. 2017, Finley &amp;amp; Matt. Submitted, and future works). The Sun’s magnetic field has been recorded for many decades, surface magnetograms are available from both gorund based (Wilcox Solar Obs, Global Oscillation Network Group) and spacecraft (SOlar and Heliospheric Obs, Solar Dynamics Obs) observatories. e.g. A magnetogram from HDI onboard SDO, depicting the radial magnetic field strength:
+&lt;img src=&quot;/images/MagData/SolarMagnetogram_HDI2196.png&quot; height=&quot;340&quot; align=&quot;middle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the data from MDI and HMI, onboard SOHO and SDO respectively, how does the magnetic field in these lowest order components evolve durring the 22 year solar cycle?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;method&quot;&gt;Method&lt;/h3&gt;
+
+&lt;p&gt;For each magnetogram (spannning the years 1996.6-2017.9), the spherical harmonics are evaluated and stored in tabulated data files. For each l=1,2,3 component, including all m’s, a Potential Field Source Surface model (Source Surface Radius of 2.5 Solar Radii) is computed for every map using the PLUTO code (just for ease) and then is visualised in VisIt. The outputs are recorded and formatted into a video file.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;video controls=&quot;&quot; height=&quot;410&quot; autoplay=&quot;&quot; loop=&quot;&quot; align=&quot;center&quot;&gt;
+      &lt;source src=&quot;/images/Videos/Adam_Sol.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;/video&gt;
+    &lt;figcaption&gt;Fig1. - The evolution of the dipole, quadrupole and octupole components of the global magnetic field during the last 22 years. Top Left: Synoptic magnetograms from both MDI and HMI in a timeseries from 1996.6-2017.9, the colour represents the radial magnetic field with the colourscale covering -50G to 50G. Top Right: The decomposed components from the spherical harmonic analysis, from top to bottom, dipole, quadrupole and octupole, with increasing m from left to right (the leftmost panels represent the axisymmetric components). Bottom Row: PFSS recontructions of the dipole, quadrupole and octupole components alone, each including all values of m for their given l. The source surface is set to 2.5 solar radii and the surface colourscales cover -5G to 5G.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;review&quot;&gt;Review&lt;/h1&gt;
+
+&lt;p&gt;This work required the use of scripting and brute force to produce over 200 PFSS models for each harmonic. The video produced from this, in essence, highlights the results of Section 3 in the Derosa et al. (2012) work, and although they do not show anything new, are an interesting way to view the wealth of solar data available.&lt;/p&gt;
+
+&lt;p&gt;Points of Interest:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The dipole’s tilt and strength during the cycle.&lt;/li&gt;
+  &lt;li&gt;The coherence of the axisymmetric dipole and octupole.&lt;/li&gt;
+  &lt;li&gt;The relative strength of each mode during the cycle.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies PLUTO MHD code, for the PFSS models link VisIt, for visualisations: link Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components</title><link href="/phd/2017/11/10/sh-decomp-solution.html" rel="alternate" type="text/html" title="Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components" /><published>2017-11-10T11:00:00+00:00</published><updated>2017-11-10T11:00:00+00:00</updated><id>/phd/2017/11/10/sh-decomp-solution</id><content type="html" xml:base="/phd/2017/11/10/sh-decomp-solution.html">&lt;hr /&gt;
+&lt;p&gt;Assets used for this project:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python&lt;/li&gt;
+  &lt;li&gt;pySHTOOLS, for the spherical harmonic tools: &lt;a href=&quot;https://shtools.oca.eu/shtools/index.html&quot;&gt;link&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;the subsequent python dependencies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;VisIt, for visualisations: &lt;a href=&quot;https://wci.llnl.gov/simulation/computer-codes/visit/downloads&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Matplotlib, for visualisations: &lt;a href=&quot;https://matplotlib.org/index.html&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -110,4 +163,4 @@
 
 &lt;p&gt;This took a good day to figure out, and I think there’s some redundant code in there (e.g. there isn’t a reason to do the interpolation section as the TH,PHI grid is already equally sampled.) However, this project taught me a lot about the spherical harmonics and coordnate geometry (I hope I don’t have to do it the later again for some time). The results show, the power to ofcourse remain within the original mode, and the higher order geometries have a much more complex behaviour that the dipole’s.&lt;/p&gt;
 
-&lt;p&gt;The tilting is done in the z-direction, hence why only the real or imaginary part of each m comes into play. I’de expect to see the opposite result when tilting in the y-direction, maybe with a sign change or two..&lt;/p&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Welcome to Astrophysics with Adam Finley!</title><link href="http://localhost:4000/jekyll/update/2017/11/10/welcome-to-afa.html" rel="alternate" type="text/html" title="Welcome to Astrophysics with Adam Finley!" /><published>2017-11-10T10:00:00+00:00</published><updated>2017-11-10T10:00:00+00:00</updated><id>http://localhost:4000/jekyll/update/2017/11/10/welcome-to-afa</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/11/10/welcome-to-afa.html">&lt;p&gt;I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.&lt;/p&gt;</content><author><name></name></author><summary type="html">I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.</summary></entry></feed>
+&lt;p&gt;The tilting is done in the z-direction, hence why only the real or imaginary part of each m comes into play. I’de expect to see the opposite result when tilting in the y-direction, maybe with a sign change or two..&lt;/p&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies VisIt, for visualisations: link Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Welcome to Astrophysics with Adam Finley!</title><link href="/phd/2017/11/10/welcome-to-afa.html" rel="alternate" type="text/html" title="Welcome to Astrophysics with Adam Finley!" /><published>2017-11-10T10:00:00+00:00</published><updated>2017-11-10T10:00:00+00:00</updated><id>/phd/2017/11/10/welcome-to-afa</id><content type="html" xml:base="/phd/2017/11/10/welcome-to-afa.html">&lt;p&gt;I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.&lt;/p&gt;</content><author><name></name></author><summary type="html">I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.</summary></entry></feed>

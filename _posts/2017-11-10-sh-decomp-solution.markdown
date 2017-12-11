@@ -2,7 +2,7 @@
 layout: post
 title:  "Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components"
 date:   2017-11-10 11:00:00 +0000
-categories: jekyll update
+categories: PhD
 ---
 ---
 Assets used for this project:
