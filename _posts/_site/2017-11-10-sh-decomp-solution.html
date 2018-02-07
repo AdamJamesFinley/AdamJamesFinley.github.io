@@ -1,0 +1,115 @@
+<hr />
+<p>Assets used for this project:</p>
+<ul>
+  <li>Python</li>
+  <li>pySHTOOLS, for the spherical harmonic tools: <a href="https://shtools.oca.eu/shtools/index.html">link</a>
+    <ul>
+      <li>the subsequent python dependencies</li>
+    </ul>
+  </li>
+  <li>VisIt, for visualisations: <a href="https://wci.llnl.gov/simulation/computer-codes/visit/downloads">link</a></li>
+  <li>Matplotlib, for visualisations: <a href="https://matplotlib.org/index.html">link</a></li>
+</ul>
+
+<p>NOTE: I use the spherical harmonic convention of storing the negative m solutions in the imaginary part of the positive solution. Therfore my index runs from 0 &lt; m &lt; l.</p>
+
+<hr />
+
+<h3 id="the-question">The Question:</h3>
+<p>A <strong>tilted dipole</strong> can be constructed from its spherical harmonic components, as each component represents a dipole aligned with the x, y, or z-axis.</p>
+
+<p><img src="/images/sph_harm/dipole_all.png" height="178" align="middle" /></p>
+
+<p>It is not as obvious how tilted geometries can be constructed for the higher order spherical harmonic modes. The various m’s produce starkly different arrangements on the surface, unlike the dipole. Here we take interest in the next simplest modes, the quadrupole and octupole:</p>
+
+<p><img src="/images/sph_harm/quadrupole_all.png" height="340" align="middle" /></p>
+
+<p><img src="/images/sph_harm/octupole_all.png" height="360" align="middle" /></p>
+
+<hr />
+
+<h3 id="method">Method</h3>
+
+<p>To find the combinations of harmonics that comprise the tilted higher order geometries, we artificially tilt a given axisymmetric (m=0) geometry. Then recover the spherical harmonic components using pySHTOOLS. e.g.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#INPUTS#</span>
+<span class="no">L</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">or</span> <span class="mi">3</span><span class="p">,</span> <span class="k">for</span> <span class="n">dipole</span><span class="p">,</span> <span class="n">quadrupole</span> <span class="n">or</span> <span class="n">octupole</span><span class="p">.</span>
+<span class="nf">angle_stepsize</span><span class="o">=</span> <span class="n">is</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">sampling</span> <span class="n">between</span> <span class="mi">0</span> <span class="n">and</span> <span class="mi">180</span> <span class="n">degrees</span><span class="o">.</span>
+<span class="c1">########</span>
+
+<span class="k">for</span> <span class="no">TH_prime</span> <span class="k">in</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="p">,</span><span class="n">angle_stepsize</span><span class="p">):</span> <span class="c1">#the angle change in the theta direction.</span>
+    <span class="no">PHI_prime</span><span class="o">=</span><span class="mi">0</span> <span class="c1">#fix the other angle, phi.</span>
+
+    <span class="c1"># CREATE A GRID IN THETA AND PHI ##########################</span>
+    <span class="no">Theta</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+    <span class="no">Phi</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+    <span class="no">PHI</span><span class="p">,</span> <span class="no">TH</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">meshgrid</span><span class="p">(</span><span class="no">Phi</span><span class="p">,</span><span class="no">Theta</span><span class="p">)</span>
+    <span class="c1">###########################################################</span>
+
+    <span class="c1"># CREATE A GRID FOR THE ROTATED COORDINATES ###############</span>
+    <span class="no">TH_rot</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nf">empty_like</span><span class="p">(</span><span class="no">TH</span><span class="p">)</span>
+    <span class="no">PHI_rot</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nf">empty_like</span><span class="p">(</span><span class="no">PHI</span><span class="p">)</span>
+    <span class="c1">###########################################################</span>
+
+    <span class="c1"># PERFORM THE COORDINATE TRANSFORMATION ON THE OLD GRID ###</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="no">Theta</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="no">Phi</span><span class="p">)):</span>
+            <span class="n">old_points</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="no">TH</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="no">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]),</span><span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="no">TH</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="no">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]),</span><span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="no">TH</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])])</span>
+            <span class="n">old_axis</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span>
+            <span class="n">transform</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="no">TH_prime</span><span class="p">)</span><span class="o">*</span><span class="n">old_points</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="no">TH_prime</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">cross</span><span class="p">(</span><span class="n">old_axis</span><span class="p">,</span><span class="n">old_points</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="nf">dot</span><span class="p">(</span><span class="n">old_axis</span><span class="p">,</span><span class="n">old_points</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="no">TH_prime</span><span class="p">))</span><span class="o">*</span><span class="n">old_axis</span>
+            <span class="no">TH_rot</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">arctan2</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">transform</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span><span class="n">transform</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+            <span class="no">PHI_rot</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arctan2</span><span class="p">(</span><span class="n">transform</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
+    <span class="c1">###########################################################</span>
+
+    <span class="no">SPH_HARMS</span> <span class="o">=</span>  <span class="n">np</span><span class="p">.</span><span class="nf">real</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="nf">sph_harm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="no">L</span><span class="p">,</span><span class="no">PHI_rot</span><span class="p">,</span><span class="no">TH_rot</span><span class="p">))</span> <span class="c1">#calculate the value of the spherical harmonic in the new grid</span>
+
+    <span class="c1"># INTERPOLATE THE VALUES BACK ONTO AN EQUALLY SAMPLE GRID #</span>
+    <span class="n">latitude</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+    <span class="n">longitude</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nf">pi</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+    <span class="no">LAT</span><span class="p">,</span> <span class="no">LONG</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">meshgrid</span><span class="p">(</span><span class="n">latitude</span><span class="p">,</span><span class="n">longitude</span><span class="p">)</span>
+    <span class="n">intepolate_grid</span><span class="o">=</span><span class="n">griddata</span><span class="p">((</span><span class="no">TH</span><span class="p">.</span><span class="nf">flatten</span><span class="p">(),</span><span class="no">PHI</span><span class="p">.</span><span class="nf">flatten</span><span class="p">()),</span><span class="no">SPH_HARMS</span><span class="o">.</span><span class="no">T</span><span class="p">.</span><span class="nf">flatten</span><span class="p">(),</span> <span class="p">(</span><span class="no">LAT</span><span class="p">,</span><span class="no">LONG</span><span class="p">),</span> <span class="nb">method</span><span class="o">=</span><span class="s1">'cubic'</span><span class="p">)</span>
+    <span class="no">SPH_HARMS</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nf">nan_to_num</span><span class="p">(</span><span class="n">intepolate_grid</span><span class="p">)</span> <span class="c1">#remove and nans</span>
+    <span class="c1">###########################################################</span>
+
+    <span class="no">Run</span> <span class="n">phSHTOOLS</span> <span class="n">to</span> <span class="n">decompose</span> <span class="n">the</span> <span class="n">harmonics</span><span class="o">.</span>
+
+    <span class="no">And</span> <span class="n">plot</span> <span class="n">result</span><span class="o">.</span>
+    </code></pre></figure>
+
+<hr />
+
+<h3 id="results">Results</h3>
+
+<p>The code rotates the coordinate system of the grid, shown in the right-most panel of each figure below. The effect this has on the spherical harmonic decomposition is examined in the middle panel, where the power in each harmonic is measured. During the whole run, the code revolves the geometry by 180 degrees, the values of the coefficients required to construct the tilted geometry are plotted in the left panel i.e. for a given l, Tilted(m=0) = coeff * (m=0) + coeff * Re(m=1) + coeff * Im(m=1) +…etc.</p>
+
+<h1 id="dipole">Dipole</h1>
+<video height="240" autoplay="" loop="" align="center">
+  <source src="/images/sph_harm/Dipole.mp4" type="video/mp4" />
+</video>
+
+<p>As the axisymmetric mode (m=0) loses strength, the equatorial (m=1) gains strength. A simple result, which seems obvious.</p>
+
+<h1 id="quadrupole">Quadrupole</h1>
+<video height="240" autoplay="" loop="" align="center">
+  <source src="/images/sph_harm/Quadrupole.mp4" type="video/mp4" />
+</video>
+
+<p>The axisymmetric mode (m=0) and the m=2 mode rise and fall together, with the m=1 mode out of phase.</p>
+
+<h1 id="octupole">Octupole</h1>
+<video height="240" autoplay="" loop="" align="center">
+  <source src="/images/sph_harm/Octupole.mp4" type="video/mp4" />
+</video>
+
+<p>A much more complicated behaviour is shown here. The m=1 and m=3 modes have symmetric functions whereas the m=0 and m=2 have antisymmetric functions about the equator.</p>
+
+<p>The code correctly maintains all the power in the given spherical harmonic order. There is a small numerical effect which introduces noise into the other modes, but it is not significant enough to impact our result.</p>
+
+<hr />
+
+<h1 id="review">Review</h1>
+
+<p>This took a good day to figure out, and I think there’s some redundant code in there (e.g. there isn’t a reason to do the interpolation section as the TH,PHI grid is already equally sampled.) However, this project taught me a lot about the spherical harmonics and coordnate geometry (I hope I don’t have to do it the later again for some time). The results show, the power to ofcourse remain within the original mode, and the higher order geometries have a much more complex behaviour that the dipole’s.</p>
+
+<p>The tilting is done in the z-direction, hence why only the real or imaginary part of each m comes into play. I’de expect to see the opposite result when tilting in the y-direction, maybe with a sign change or two..</p>
+
