@@ -36,4 +36,6 @@ To better visualise the magnetic fields of solar-like stars (and potentially oth
 # Publications:
 [The Effect of Combined Magnetic Geometries on Thermally Driven Winds I: Interaction of Dipolar and Quadrupolar Fields ]( http://iopscience.iop.org/article/10.3847/1538-4357/aa7fb9)
 
+[The Effect of Combined Magnetic Geometries on Thermally Driven Winds. II. Dipolar, Quadrupolar, and Octupolar Topologies ](http://iopscience.iop.org/article/10.3847/1538-4357/aaaab5)
+
 
