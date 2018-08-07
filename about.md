@@ -24,7 +24,7 @@ I wish to understand the complex interaction of stellar magnetic fields and plas
 <tr><td class="caption">Figure 1 from Finley & Matt (2017), showing a few stellar wind simulations with differing magnetic geometries.</td></tr>
 </table>
 
-Working in the AWESoMeStars research group, supervised by Sean Matt, I create magnetohydrodynamics (MHD) simulations of stellar winds from sun-like stars, where I explore the impact of imposed magnetic field structures on the morphology and structure within the wind. My research is mainly focused on the creation of torque scaling laws for evolutionary models of stellar spin down, which take into account the changing magnetic field structure seen in many active stars. I am attempting to create a systematic study of the simplest field combinations, dipole, quadrupole and octupole in order to produce torque scaling relations capable of including activity cycles and changing magnetic field topologies. 
+Working in the [AWESoMeStars](http://empslocal.ex.ac.uk/AWESoMeStars/) research group, supervised by [Sean Matt](http://emps.exeter.ac.uk/physics-astronomy/staff/sm561), I create magnetohydrodynamics (MHD) simulations of stellar winds from sun-like stars, where I explore the impact of imposed magnetic field structures on the morphology and structure within the wind. My research is mainly focused on the creation of torque scaling laws for evolutionary models of stellar spin down, which take into account the changing magnetic field structure seen in many active stars. I have performed a systematic study of the simplest axisymmetric field combinations, dipole, quadrupole and octupole, producing semi-analytic relations for the torque on the star. I have subsequently applied these to the variable magnetic field topologies observed in both the Sun and other sun-like stars. I am furthering this work by concidering more complex/realistic magnetic field configurations in my MHD wind simulations.
 
 To better visualise the magnetic fields of solar-like stars (and potentially other magnetised astrophysical phenomena), I have been working with the physics department's 3D printing capability to render handheld models which can be used for research or outreach purposes. 
 
@@ -33,9 +33,5 @@ To better visualise the magnetic fields of solar-like stars (and potentially oth
 <tr><td class="caption">3D printed models, dipolar to quadrupole mixed geometries.</td></tr>
 </table>
 
-# Publications:
-[The Effect of Combined Magnetic Geometries on Thermally Driven Winds I: Interaction of Dipolar and Quadrupolar Fields ]( http://iopscience.iop.org/article/10.3847/1538-4357/aa7fb9)
-
-[The Effect of Combined Magnetic Geometries on Thermally Driven Winds. II. Dipolar, Quadrupolar, and Octupolar Topologies ](http://iopscience.iop.org/article/10.3847/1538-4357/aaaab5)
-
+[University of Exeter Webpage](http://emps.exeter.ac.uk/physics-astronomy/staff/af472)
 

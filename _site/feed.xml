@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-02-07T14:01:09+00:00</updated><id>http://localhost:4000/</id><title type="html">Adam Finley - Astrophysics</title><subtitle>This site contains information and materials related to the PhD project  of Adam Finley at the University of Exeter (2016-2020).</subtitle><entry><title type="html">Attempting to Render 3D Models Using three.js</title><link href="http://localhost:4000/phd/2017/12/12/3D_PrintingTest.html" rel="alternate" type="text/html" title="Attempting to Render 3D Models Using three.js" /><published>2017-12-12T11:00:00+00:00</published><updated>2017-12-12T11:00:00+00:00</updated><id>http://localhost:4000/phd/2017/12/12/3D_PrintingTest</id><content type="html" xml:base="http://localhost:4000/phd/2017/12/12/3D_PrintingTest.html">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-08T00:18:22+01:00</updated><id>/</id><title type="html">Adam Finley - Astrophysics</title><subtitle>This site contains information and materials related to the PhD project  of Adam Finley at the University of Exeter (2016-2020).</subtitle><entry><title type="html">The Effect of Magnetic Variability on Angular Momentum Loss for the Sun</title><link href="/phd/2018/06/27/Torque_SolarCycle.html" rel="alternate" type="text/html" title="The Effect of Magnetic Variability on Angular Momentum Loss for the Sun" /><published>2018-06-27T12:00:00+01:00</published><updated>2018-06-27T12:00:00+01:00</updated><id>/phd/2018/06/27/Torque_SolarCycle</id><content type="html" xml:base="/phd/2018/06/27/Torque_SolarCycle.html">&lt;hr /&gt;
+&lt;p&gt;Assets used for this project:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python&lt;/li&gt;
+  &lt;li&gt;pySHTOOLS, for the spherical harmonic tools: &lt;a href=&quot;https://shtools.oca.eu/shtools/index.html&quot;&gt;link&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;the subsequent python dependencies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Matplotlib, for visualisations: &lt;a href=&quot;https://matplotlib.org/index.html&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remote sensing data is taken from both the Michelson Doppler Imager and Helioseismic and Magnetic Imager, onboard the SOlar and Heliospheric Observatory and the Solar Dynamics Observatory, respectively. In-situ data is colected from the Advance Composition Explorer satelite. Sunspot number is taken from WDC-SILSO, Royal Observatory of Belgium.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SolarTorque/SolarCycleTorqueFig.png&quot; height=&quot;550&quot; align=&quot;middle&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;the-question&quot;&gt;The Question:&lt;/h3&gt;
+&lt;p&gt;How does the magnetic variability of the Sun, over the solar cycle, impact the angular momentum loss rate? Also, given the wealth of data available for the Sun, how do the angular momentum prescriptions from Finley &amp;amp; Matt (2018) compare with the expect torque based on the obsereved spins of other stars?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;method&quot;&gt;Method&lt;/h3&gt;
+&lt;p&gt;We calculate the angular momentum loss rate using three different techniques, two of which are based on the simulations presented in Finley &amp;amp; Matt (2018).&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Surface Magnetic Field Torque: Using the spherical harmonic components of MDI and HMI magnetograms, with the estimated mass loss rate from in-situ spacecraft. Average torque is found to be 0.4x10^30 erg.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open Magnetic Flux Torque: Use both the estimated mass loss rate and the open magnetic flux in the wind, as calculated by ACE. Average torque is found to be 2.3x10^30 erg.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Inferred Torque from the Observed Spins of Other Stars: Expected torque is found to be 6.2x10^30 erg.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+
+&lt;p&gt;The three methods produce differing estimates for the solar wind angular momentum loss rate:&lt;/p&gt;
+
+&lt;table class=&quot;image&quot; align=&quot;right&quot;&gt;
+&lt;tr&gt;&lt;td&gt;&lt;img src=&quot;/images/SolarTorque/All_torques.png&quot; height=&quot;320&quot; align=&quot;middle&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;caption&quot;&gt;&lt;h4&gt;Torque Comparison: Method 1 - black solid line, with solid orange average. Method 2 - grey and magenta solid lines, with dashed orange average. Method 3 - dot dashed orange line. Black squares represent the 3D simulations from Reville &amp;amp; Brun (2017). Yellow, green and blue shading represents sunspot cycles 22, 23 and 24 respectively.&lt;/h4&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The two MHD methods are discrepent in strength due to the open flux problem. They differ in shape, perhaps, due to the influence of non-axisymetric modes and/or the effect of Interplanetary Coronal Mass Ejections which are most frequent at solar maximum. The MHD methods are boh different to the inferred spin-down torque required to produce Skumanich. The Sun may be in a low state currently compared to the million year average?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;review&quot;&gt;Review&lt;/h1&gt;
+
+&lt;p&gt;This work was very informative, bridging the solar-stellar connection and really testing our understanding of stellar wind braking. The results from this work will continue to influence future projects.&lt;/p&gt;
+
+&lt;p&gt;Points of Interest:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Discrepency between Surface and Open Flux methods (1 &amp;amp; 2) -&amp;gt; Open Flux Problem&lt;/li&gt;
+  &lt;li&gt;Discrepency between Open Flux and Inferred Torque -&amp;gt; Further variability on the Myr timescale, problems with the MHD models? Unclear.&lt;/li&gt;
+  &lt;li&gt;The variability of the torque over the cycle, and between different sunspot cycles. We observe a 30% reduction in the value fo the torque from cycle 23 to cycle 24.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Attempting to Render 3D Models Using three.js</title><link href="/phd/2017/12/12/3D_PrintingTest.html" rel="alternate" type="text/html" title="Attempting to Render 3D Models Using three.js" /><published>2017-12-12T11:00:00+00:00</published><updated>2017-12-12T11:00:00+00:00</updated><id>/phd/2017/12/12/3D_PrintingTest</id><content type="html" xml:base="/phd/2017/12/12/3D_PrintingTest.html">&lt;hr /&gt;
 &lt;p&gt;Assets used for this project:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;three.js&lt;/li&gt;
@@ -78,7 +143,7 @@
   &lt;li&gt;I do not control the location of the javescript item&lt;/li&gt;
   &lt;li&gt;I can not add additional files ono the same page whithout breaking the previous.&lt;/li&gt;
   &lt;li&gt;The is no GUI yet for the user.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Assets used for this project: three.js</summary></entry><entry><title type="html">The Dipole, Quadrupole and Octupole Components of the Solar Magnetic Field Over 22 Years</title><link href="http://localhost:4000/phd/2017/12/11/DipQuadOct_SolarCycle.html" rel="alternate" type="text/html" title="The Dipole, Quadrupole and Octupole Components of the Solar Magnetic Field Over 22 Years" /><published>2017-12-11T11:00:00+00:00</published><updated>2017-12-11T11:00:00+00:00</updated><id>http://localhost:4000/phd/2017/12/11/DipQuadOct_SolarCycle</id><content type="html" xml:base="http://localhost:4000/phd/2017/12/11/DipQuadOct_SolarCycle.html">&lt;hr /&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Assets used for this project: three.js</summary></entry><entry><title type="html">The Dipole, Quadrupole and Octupole Components of the Solar Magnetic Field Over 22 Years</title><link href="/phd/2017/12/11/DipQuadOct_SolarCycle.html" rel="alternate" type="text/html" title="The Dipole, Quadrupole and Octupole Components of the Solar Magnetic Field Over 22 Years" /><published>2017-12-11T11:00:00+00:00</published><updated>2017-12-11T11:00:00+00:00</updated><id>/phd/2017/12/11/DipQuadOct_SolarCycle</id><content type="html" xml:base="/phd/2017/12/11/DipQuadOct_SolarCycle.html">&lt;hr /&gt;
 &lt;p&gt;Assets used for this project:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Python&lt;/li&gt;
@@ -130,7 +195,7 @@
   &lt;li&gt;The dipole’s tilt and strength during the cycle.&lt;/li&gt;
   &lt;li&gt;The coherence of the axisymmetric dipole and octupole.&lt;/li&gt;
   &lt;li&gt;The relative strength of each mode during the cycle.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies PLUTO MHD code, for the PFSS models link VisIt, for visualisations: link Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components</title><link href="http://localhost:4000/phd/2017/11/10/sh-decomp-solution.html" rel="alternate" type="text/html" title="Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components" /><published>2017-11-10T11:00:00+00:00</published><updated>2017-11-10T11:00:00+00:00</updated><id>http://localhost:4000/phd/2017/11/10/sh-decomp-solution</id><content type="html" xml:base="http://localhost:4000/phd/2017/11/10/sh-decomp-solution.html">&lt;hr /&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies PLUTO MHD code, for the PFSS models link VisIt, for visualisations: link Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components</title><link href="/phd/2017/11/10/sh-decomp-solution.html" rel="alternate" type="text/html" title="Tilted Axisymmetric Magnetic Geometries, Reconstructed in Spherical Harmonic Components" /><published>2017-11-10T11:00:00+00:00</published><updated>2017-11-10T11:00:00+00:00</updated><id>/phd/2017/11/10/sh-decomp-solution</id><content type="html" xml:base="/phd/2017/11/10/sh-decomp-solution.html">&lt;hr /&gt;
 &lt;p&gt;Assets used for this project:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Python&lt;/li&gt;
@@ -243,4 +308,4 @@
 
 &lt;p&gt;This took a good day to figure out, and I think there’s some redundant code in there (e.g. there isn’t a reason to do the interpolation section as the TH,PHI grid is already equally sampled.) However, this project taught me a lot about the spherical harmonics and coordnate geometry (I hope I don’t have to do it the later again for some time). The results show, the power to ofcourse remain within the original mode, and the higher order geometries have a much more complex behaviour that the dipole’s.&lt;/p&gt;
 
-&lt;p&gt;The tilting is done in the z-direction, hence why only the real or imaginary part of each m comes into play. I’de expect to see the opposite result when tilting in the y-direction, maybe with a sign change or two..&lt;/p&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies VisIt, for visualisations: link Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Welcome to Astrophysics with Adam Finley!</title><link href="http://localhost:4000/phd/2017/11/10/welcome-to-afa.html" rel="alternate" type="text/html" title="Welcome to Astrophysics with Adam Finley!" /><published>2017-11-10T10:00:00+00:00</published><updated>2017-11-10T10:00:00+00:00</updated><id>http://localhost:4000/phd/2017/11/10/welcome-to-afa</id><content type="html" xml:base="http://localhost:4000/phd/2017/11/10/welcome-to-afa.html">&lt;p&gt;I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.&lt;/p&gt;</content><author><name></name></author><summary type="html">I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.</summary></entry></feed>
+&lt;p&gt;The tilting is done in the z-direction, hence why only the real or imaginary part of each m comes into play. I’de expect to see the opposite result when tilting in the y-direction, maybe with a sign change or two..&lt;/p&gt;</content><author><name></name></author><summary type="html">Assets used for this project: Python pySHTOOLS, for the spherical harmonic tools: link the subsequent python dependencies VisIt, for visualisations: link Matplotlib, for visualisations: link</summary></entry><entry><title type="html">Welcome to Astrophysics with Adam Finley!</title><link href="/phd/2017/11/10/welcome-to-afa.html" rel="alternate" type="text/html" title="Welcome to Astrophysics with Adam Finley!" /><published>2017-11-10T10:00:00+00:00</published><updated>2017-11-10T10:00:00+00:00</updated><id>/phd/2017/11/10/welcome-to-afa</id><content type="html" xml:base="/phd/2017/11/10/welcome-to-afa.html">&lt;p&gt;I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.&lt;/p&gt;</content><author><name></name></author><summary type="html">I have created this website to contain “useful” imformation, or experiences, gained during the PhD process which are not directly applicable to active research projects. This may include work done to answer small questions, with relevent equations, code snipets, visualisations and other such materials.</summary></entry></feed>
