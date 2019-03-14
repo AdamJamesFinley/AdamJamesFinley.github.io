@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+---
+<h1>The Dipole, Quadrupole and Octupole Components of the Solar Magnetic Field Over 22 Years</h1>
+---<br/>
+
+<h2>Assets used for this project:</h2>
+<ul>
+<li> Python </li>
+<li> <a href = 'https://shtools.oca.eu/shtools/index.html'> pySHTOOLS, for the spherical harmonic tools: </a></li>
+<ul>
+<li> the subsequent python dependencies</li>
+</ul>
+<li> <a href = 'http://plutocode.ph.unito.it/'> PLUTO MHD code, for the PFSS models </a></li>
+<li> <a href = 'https://wci.llnl.gov/simulation/computer-codes/visit/downloads'> VisIt, for visualisations </a></li>
+<li> <a href = 'https://matplotlib.org/index.html'> Matplotlib, for visualisations </a></li>
+
+<li> Data from both the Michelson Doppler Imager and Helioseismic and Magnetic Imager, onboard the SOlar and Heliospheric Observatory and the Solar Dynamics Observatory, respectively.
+</ul>
+---
+
+<h2>The Question:</h2>
+As shown previously, the Solar magnetic field can be decomposed into its spherical harmonic components (see work by DeRosa et al. 2012). The magnetic lowest order components (l=1,2,3) represent the large scale magnetic field, which has been shown to be the most significant in producing an efficient braking torque from a given mass loss in a stellar wind (Finley & Matt. 2017, Finley & Matt. Submitted, and future works). The Sun's magnetic field has been recorded for many decades, surface magnetograms are available from both gorund based (Wilcox Solar Obs, Global Oscillation Network Group) and spacecraft (SOlar and Heliospheric Obs, Solar Dynamics Obs) observatories. e.g. A magnetogram from HDI onboard SDO, depicting the radial magnetic field strength:
+<img src="/extra/media/SolarMagnetogram_MDI2156.png" height='340' align="center"><br/>
+
+
+Using the data from MDI and HMI, onboard SOHO and SDO respectively, how does the magnetic field in these lowest order components evolve durring the 22 year solar cycle?<br/>
+
+---<br/>
+
+<h2>Method</h2>
+
+For each magnetogram (spannning the years 1996.6-2017.9), the spherical harmonics are evaluated and stored in tabulated data files. For each l=1,2,3 component, including all m's, a Potential Field Source Surface model (Source Surface Radius of 2.5 Solar Radii) is computed for every map using the PLUTO code (just for ease) and then is visualised in VisIt. The outputs are recorded and formatted into a video file.<br/>
+
+---<br/>
+
+<h2>Results</h2>
+
+    <video controls height="340" autoplay='' loop='' align='center' controls>
+      <source src="/extra/media/AdamFinleySolarCycle.mp4" type="video/mp4">
+    </video><br/>
+Fig: The evolution of the dipole, quadrupole and octupole components of the global magnetic field during the last 22 years. Top Left: Synoptic magnetograms from both MDI and HMI in a timeseries from 1996.6-2017.9, the colour represents the radial magnetic field with the colourscale covering -50G to 50G. Top Right: The decomposed components from the spherical harmonic analysis, from top to bottom, dipole, quadrupole and octupole, with increasing m from left to right (the leftmost panels represent the axisymmetric components). Bottom Row: PFSS recontructions of the dipole, quadrupole and octupole components alone, each including all values of m for their given l. The source surface is set to 2.5 solar radii and the surface colourscales cover -5G to 5G.<br/>
+
+
+---<br/>
+
+<h2>Review</h2>
+
+This work required the use of scripting and brute force to produce over 200 PFSS models for each harmonic. The video produced from this, in essence, highlights the results of Section 3 in the DeRosa et al. (2012) work, and although they do not show anything new, are an interesting way to view the wealth of solar data available.<br/>
+
+Points of Interest:
+<ul>
+<li> The dipole's tilt and strength during the cycle.
+<li> The coherence of the axisymmetric dipole and octupole.
+<li> The relative strength of each mode during the cycle.
+</ul>
+</body>
+</html>
