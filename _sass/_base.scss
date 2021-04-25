@@ -225,9 +225,8 @@ header {
 .portfolio-box {
     position: relative;
     display: block;
-    width: 650px;
-    height: 650px;
-    max-width: 650px;
+    width: 33.33%;
+    min-height: auto;
     margin: 0 auto;
     .portfolio-box-caption {
         color: white;
