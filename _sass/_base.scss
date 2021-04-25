@@ -225,6 +225,8 @@ header {
 .portfolio-box {
     position: relative;
     display: block;
+    width: 250px;
+    height: 250px;
     max-width: 650px;
     margin: 0 auto;
     .portfolio-box-caption {
@@ -348,4 +350,3 @@ img::-moz-selection {
 body {
     -webkit-tap-highlight-color: $theme-dark;
 }
-
