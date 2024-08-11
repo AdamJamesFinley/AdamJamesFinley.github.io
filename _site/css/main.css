@@ -49,6 +49,8 @@ section {
   padding: 100px 0; }
 
 aside {
+  width: 100%;
+  min-height: auto;
   padding: 0px 0; }
 
 
